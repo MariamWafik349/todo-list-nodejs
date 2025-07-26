@@ -12,16 +12,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
-      - name: Debug Secrets
-        run: |
-          echo "DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}"
-          if [ -z "${{ secrets.DOCKER_PASSWORD }}" ]; then
-            echo "DOCKER_PASSWORD is NOT SET ❌"
-          else
-            echo "DOCKER_PASSWORD is SET ✅"
-          fi
-
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
